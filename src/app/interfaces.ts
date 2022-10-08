@@ -26,6 +26,7 @@ export interface EmployerIE extends UserIE{
     respect: number, 
     telegramID: string,
     command: string,
+    clan:string
 }
 
 

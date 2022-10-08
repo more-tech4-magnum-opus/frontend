@@ -142,6 +142,7 @@ export const UserTable:React.FC = () =>{
                 respect: user.respect,
                 balance: user.salary,
                 jobTittle: user.department,
+                clan: user.clan_name
             }) as EmployerIE ))))
         })
         adminFetcher.get("season/clans/").then((response:any)=>{
@@ -168,7 +169,7 @@ export const UserTable:React.FC = () =>{
                 {
                     name: user.name,
                     balance: user.balance,
-                    command: user.command,
+                    command: user.clan,
                     speciality: user.jobTittle,
                     key: user.telegramID,
                     telegram: user.telegramID,
