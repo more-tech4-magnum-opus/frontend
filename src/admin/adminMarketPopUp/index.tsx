@@ -11,7 +11,7 @@ import { Header } from "../../components/Header"
 
 export const AdminMarketPopUp:React.FC = () =>{
     let {id} = useParams()
-    let product = useAppSelector((state: RootAdminState)=>getProductByID(state, Number(id)))
+    let product = useAppSelector((state: RootAdminState)=>getProductByID(state, id as string))
     const [cost, setCost] = useState(product.cost)
     const [name, setName] = useState(product.name)
     const [descr, setDescr] = useState(product.description)
@@ -23,10 +23,9 @@ export const AdminMarketPopUp:React.FC = () =>{
         fetchChangeProduct(dispatch, {
             cost: cost, 
             name: name,
-            description: descr,
-            id:product.id,
-            image: product.image
-        } as ProductIE)
+            descr: descr,
+            id: product.id
+        })
         navigate("/admin/market")
     }
 

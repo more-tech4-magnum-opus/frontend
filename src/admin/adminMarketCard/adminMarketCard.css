@@ -1,6 +1,6 @@
 .adminCard{
     width: 240px;
-    max-height: 400px;
+    max-height: 450px;
     display: flex;
     flex-direction: column;
     background: #FFFFFF;
@@ -37,7 +37,7 @@
 .adminCardH2{
     font-weight: 400;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 18px;
     color: rgba(0, 0, 0, 0.85)
 }
 

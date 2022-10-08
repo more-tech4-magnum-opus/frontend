@@ -9,7 +9,7 @@ export const useAppSelector: TypedUseSelectorHook<RootAdminState> = useSelector;
 export const adminFetcher = axios.create(
     {
         baseURL: host,
-        timeout: 1000,
+        timeout: 5000,
         headers: {
             Authorization: 'Bearer ' + token
         }

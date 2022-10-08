@@ -1,23 +1,18 @@
 import React, { useState } from "react"
-import { getProducts, getUser } from "../../app/admin/adminSlice";
+import { addProduct, addProducts, fetchAddProduct, getProducts, getUser } from "../../app/admin/adminSlice";
 import { RootAdminState } from "../../app/adminStore";
-import { useAppSelector } from "../../app/hooks";
+import { adminFetcher, useAppDispatch, useAppSelector } from "../../app/hooks";
 import { Header } from "../../components/Header";
 import { AdminMarketCard } from "../adminMarketCard";
 import "./adminMarket.css"
-import {
-    BrowserRouter as Router,
-    Route,
-    Routes,
-    Link
-  } from "react-router-dom";
-import { AdminMarketPopUp } from "../adminMarketPopUp";
+import { ProductIE } from "../../app/interfaces";
 
 export const AdminMarket:React.FC = () =>{
-    const [opened, setOpened] = useState(false);
+    const [first, setFirst] = useState(true)
+
     let user = useAppSelector((state:RootAdminState)=>getUser(state))
     let cards: JSX.Element[] = []
-    let products = useAppSelector(
+    let prod = useAppSelector(
         (state: RootAdminState)=>getProducts(state)).forEach(
             product=>cards.push(<AdminMarketCard  
                         name={product.name}
@@ -26,10 +21,37 @@ export const AdminMarket:React.FC = () =>{
                         cost={product.cost} 
                         id={product.id}
                     ></AdminMarketCard>))
-    
+    let products = useAppSelector((state:RootAdminState)=>getProducts(state))
+
+    let dispatch = useAppDispatch()
+
+    if (products.length == 0 && first ){
+        setFirst(false)
+        adminFetcher.get("marketplace/product/").then(
+        (response)=>{
+            dispatch(addProducts(
+                response.data.map((params:any)=>
+                    ({
+                        name: params.name,
+                        description:params.description,
+                        image: params.image_cropped,
+                        cost:Number(params.price),
+                        id:params.slug
+                    } as ProductIE)
+                )
+            ))
+            }
+        )
+    }
+
+
     return(
             <div className="market">
                 <Header links={[
+                        {
+                            link:"/admin/users",
+                            name:"Участники"
+                        },
                         {
                             link:"/admin/market",
                             name:"Market place"
@@ -38,10 +60,6 @@ export const AdminMarket:React.FC = () =>{
                             link:"/admin/market/add",
                             name:"Cоздать товар (NFT)"
                         },
-                        {
-                            link:"/admin/users",
-                            name:"Участники"
-                        }
                     ]}
                     name={user.name}></Header>
                 <div className="marketCard">

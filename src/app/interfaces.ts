@@ -14,7 +14,6 @@ export enum Specialities{
 
 export interface UserIE{
     wallet:string,
-    id:number
     role:Roles
     balance: number,
     name:string,
@@ -23,8 +22,11 @@ export interface UserIE{
 
 
 export interface EmployerIE extends UserIE{
-    jobTittle:Specialities,
+    jobTittle:string,
     respect: number, 
+    telegramID: string,
+    command: string,
+    clan:string
 }
 
 
@@ -42,7 +44,7 @@ export interface ProductIE{
     description:string,
     image: string,
     cost: number,
-    id: number,
+    id: string,
 }
 
 export enum SortTypes{
@@ -54,4 +56,9 @@ export enum SortTypes{
 export interface Market{
     sortType: SortTypes,
     products: ProductIE[],
+}
+
+export interface ClanIE{
+    name:string, 
+    users:UserIE[]
 }
