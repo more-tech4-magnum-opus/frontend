@@ -14,7 +14,7 @@ export const FileUploader:React.FC<FileUploaderIE> = (data) =>{
         name: 'file',
         action: "",
         headers: {
-          authorization: 'authorization-text',
+            "content-type": 'multipart/form-data; boundary=----WebKitFormBoundaryqTqJIxvkWFYqvP5s'
         },
         beforeUpload: (file:File) => {
           const isPNG = file.type === 'image/png';

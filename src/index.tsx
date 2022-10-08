@@ -15,12 +15,15 @@ import {
   createRoutesFromElements,
   RouterProvider,
   Link,
-  Routes
+  Routes,
 } from "react-router-dom";
 import { UserTable } from './admin/userTable';
 import { AdminUserCard } from './admin/adminUserCard';
 import { AdminClans } from './admin/adminClans';
 import { AddUser } from './admin/addUser';
+import { UserLk } from './user/lk';
+import { Clan } from './user/clan';
+
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
@@ -37,7 +40,8 @@ const router = createBrowserRouter(
           <Route path='admin/users/add' element={<Provider store={adminStore}><AddUser></AddUser></Provider>}></Route>
 
           <Route path="hr"></Route>
-          <Route path="user"></Route>
+          <Route path="user/lk/" element={<UserLk />} />
+          <Route path='user/clan' element={<Clan />} /> 
     </Route>
           
   )
