@@ -1,0 +1,17 @@
+.userTable{
+    padding-top: 200px;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(85.91deg, #096DD9 0%, #40A9FF 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userTableWrapper{
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+    justify-content: flex-start;
+    align-items: flex-start;
+}

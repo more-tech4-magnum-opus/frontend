@@ -49,6 +49,10 @@ export const AdminMarket:React.FC = () =>{
             <div className="market">
                 <Header links={[
                         {
+                            link:"/admin/users",
+                            name:"Участники"
+                        },
+                        {
                             link:"/admin/market",
                             name:"Market place"
                         },
@@ -56,10 +60,6 @@ export const AdminMarket:React.FC = () =>{
                             link:"/admin/market/add",
                             name:"Cоздать товар (NFT)"
                         },
-                        {
-                            link:"/admin/users",
-                            name:"Участники"
-                        }
                     ]}
                     name={user.name}></Header>
                 <div className="marketCard">

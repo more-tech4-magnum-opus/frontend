@@ -1,0 +1,34 @@
+.userCard{
+    padding-top: 200px;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(85.91deg, #096DD9 0%, #40A9FF 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userCardWrapper{
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.nameText{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.85)
+}
+.fieldText{
+    font-size: 14px;
+    line-height: 22px;
+    color: rgba(0, 0, 0, 0.45);
+}
+.btnWrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 25px
+}
