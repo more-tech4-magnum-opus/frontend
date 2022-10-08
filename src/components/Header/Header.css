@@ -13,10 +13,11 @@
     font-weight: 700;
     font-size: 16px;
     line-height: 24px;
-
+    overflow: visible;
     color: #FFFFFF;
 }
 .links{
+    overflow: visible;
     display: flex;
     flex-direction: row;
     gap:16px;
@@ -27,9 +28,11 @@
 
 }
 .link{
+    overflow: visible;
+
     filter: drop-shadow(0px 2px 0px rgba(0, 0, 0, 0.043));
     border-radius: 101px;
-    padding: 8px 16px;
+    padding: 5px 16px;
     border: 1px solid #1890FF;
 
 
@@ -38,7 +41,8 @@
 .activeLink{
     background: #1890FF;
     /* drop-shadow / button-primary */
-    
+    overflow: visible;
+
     box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.043);
     border-radius: 101px;
     padding: 8px 16px;
@@ -46,6 +50,8 @@
 }
 
 .userInfo{
+    overflow: visible;
+
     display: flex;
     flex-direction: row;
     align-items: center;
