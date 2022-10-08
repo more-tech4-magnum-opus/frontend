@@ -42,7 +42,7 @@ export interface ProductIE{
     description:string,
     image: string,
     cost: number,
-    id: number,
+    id: string,
 }
 
 export enum SortTypes{

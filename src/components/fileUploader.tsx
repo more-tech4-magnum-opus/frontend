@@ -12,27 +12,25 @@ export const FileUploader:React.FC<FileUploaderIE> = (data) =>{
 
     const props = {
         name: 'file',
-        action: host + '/api/',
+        action: "",
         headers: {
           authorization: 'authorization-text',
         },
-      
-        onChange(info:any) {
-          if (info.file.status !== 'uploading') {
+        beforeUpload: (file:File) => {
+          const isPNG = file.type === 'image/png';
+          if (!isPNG) {
+            message.error(`${file.name} is not a png file`);
           }
-      
-          if (info.file.status === 'done') {
-            data.onResponse(info.file.response)
-            message.success(`${info.file.name} file uploaded successfully`);
-          } else if (info.file.status === 'error') {
-            message.error(`${info.file.name} file upload failed.`);
-          }
+          data.onResponse(file)
+          return isPNG || Upload.LIST_IGNORE;
+          
         },
+        
       };
       
     return (
-            <Upload {...props} multiple>
-              <Button icon={<UploadOutlined></UploadOutlined>}>Загрузите файлы для проверки</Button>
+            <Upload {...props}>
+              <Button icon={<UploadOutlined></UploadOutlined>}>Загрузите картинку</Button>
             </Upload>
       );
 }

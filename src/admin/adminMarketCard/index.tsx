@@ -14,15 +14,18 @@ export const AdminMarketCard:React.FC<ProductIE> = (props) =>{
     
     return(
         <div className="adminCard">
-            <img src={props.image}></img>
-            <div className="adminCost">
-                <img src="/rub.svg"></img>
-                <div>{props.cost}</div>
+            <img className="adminImg" src={props.image}></img>
+            <div className="adminCardWrapper">
+                <div className="adminCost">
+                    <img src="/rub.svg"></img>
+                    <div>{props.cost}</div>
+                </div>
+                <div className="adminCardH2">{props.name}</div>
+                <div className="adminCardDescr">{props.description.split(" ").slice(0,6).join(" ")}</div>
+                <Button className="btn1" style={{width:"100%"}} onClick={()=>navigate("/admin/market/" + props.id) }>Редактировать</Button>
+                <Button className="btn2" style={{width:"100%"}} onClick={()=>fetchDelProduct(dispatch, props.id)}>Удалить</Button>
             </div>
-            <div>{props.name}</div>
-            <div>{props.description}</div>
-            <Button className="btn1" onClick={()=>navigate("/admin/market/" + props.id) }>Редактировать</Button>
-            <Button className="btn2" onClick={()=>fetchDelProduct(dispatch, props.id)}>Удалить</Button>
+            
         </div>
     )
 }

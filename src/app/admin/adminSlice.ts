@@ -32,9 +32,16 @@ const adminSlice = createSlice(
                 state.user.balance = state.user.balance - action.payload
             },
             addProduct(state, action: PayloadAction<ProductIE>){
-                state.market.products = state.market.products.concat([action.payload])
+                if(state.market.products.indexOf(action.payload) == -1){
+                    state.market.products = state.market.products.concat([action.payload])
+                }
             },
-            delProduct(state, action:PayloadAction<number>){
+            addProducts(state, action: PayloadAction<ProductIE[]>){
+                if(state.market.products.length == 0){
+                    state.market.products = state.market.products.concat(action.payload)
+                }
+            },
+            delProduct(state, action:PayloadAction<string>){
                 let products = state.market.products
                 let ind = 0
                 products.forEach((product, index)=>{
@@ -47,6 +54,7 @@ const adminSlice = createSlice(
             },
             changeProduct(state, action:PayloadAction<ProductIE>){
                 let products = state.market.products
+                console.log(action.payload)
                 products.forEach((product,index)=>{
                     if (product.id == action.payload.id){
                         products[index] = action.payload
@@ -64,29 +72,50 @@ export async function fetchSendCoins(dispatch:AppAdminDispatch, params:{userID:n
     dispatch(sendCoins(params.amount))
 }
 
-export async function fetchAddProduct(dispatch:AppAdminDispatch, params:{image: FormData, descr: string, name:string, cost:number}) {
+export async function fetchAddProduct(dispatch:AppAdminDispatch, params:{image: File, descr: string, name:string, cost:number}) {
     //тут идет фетч
-    let data = {
-        image: "",
-        description: params.descr,
-        name: params.name,
-        cost: params.cost,
-        id: params.cost
-    } as ProductIE //vмоковая даата
-    adminFetcher.post("marketplace/product/", {
+    const formData = new FormData()
+    formData.append("name",params.name)
+    formData.append("description",params.descr)
+    formData.append("image", params.image)
+    formData.append("price",params.cost.toString())
+    adminFetcher.post("marketplace/product/", formData).then((response)=>{
+        dispatch(addProduct({
+            name: response.data.name,
+            description:response.data.description,
+            image: response.data.image_cropped,
+            cost:Number(response.data.price),
+            id:response.data.slug
+        } as ProductIE))
         
     })
 
-    dispatch(addProduct(data))
+    
 }
 
-export async function fetchDelProduct(dispatch:AppAdminDispatch, id:number) {
+export async function fetchDelProduct(dispatch:AppAdminDispatch, id:string) {
     //тут идет фетч
-    dispatch(delProduct(id))
+    adminFetcher.delete("marketplace/product/"+id).then(()=>dispatch(delProduct(id)))
+    
 }
 
-export async function fetchChangeProduct(dispatch:AppAdminDispatch, params:ProductIE) {
-    dispatch(changeProduct(params))
+export async function fetchChangeProduct(dispatch:AppAdminDispatch, params:{id:string, descr: string, name:string, cost:number}) {
+    const formData = new FormData()
+    formData.append("name",params.name)
+    formData.append("description",params.descr)
+    formData.append("price",params.cost.toString())
+    adminFetcher.patch("marketplace/product/" + params.id, formData).then((response)=>{
+        dispatch(delProduct(params.id))
+        dispatch(addProduct({
+            name: response.data.name,
+            description:response.data.description,
+            image: response.data.image_cropped,
+            cost:Number(response.data.price),
+            id:response.data.slug
+        } as ProductIE))
+        
+    })
+      
 }
 
 export const getProducts = createSelector(
@@ -95,7 +124,7 @@ export const getProducts = createSelector(
 )
 
 export const getProductByID = createSelector(
-    (state:RootAdminState, id:number) => state.adminSlice.market.products.filter((product)=>product.id == id)[0],
+    (state:RootAdminState, id:string) => state.adminSlice.market.products.filter((product)=>product.id == id)[0],
     (field)=>field
 )
 
@@ -113,6 +142,7 @@ export const {
     addProduct,
     delProduct,
     changeProduct,
+    addProducts
 } = adminSlice.actions
 
 export default adminSlice.reducer

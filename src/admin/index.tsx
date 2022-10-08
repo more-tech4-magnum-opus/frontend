@@ -8,21 +8,8 @@ import { RootAdminState } from "../app/adminStore";
 import { Header } from "../components/Header";
 
 export const AdminPage:React.FC = () => {
-    const [respProducts, setRespProducts] = useState([-1 as any])
-    let products = useAppSelector((state:RootAdminState)=>getProducts(state))
-    let user = useAppSelector((state:RootAdminState)=>getUser(state))
-    let dispatch = useAppDispatch()
-    if (products.length == 0){
-        adminFetcher.get("marketplace/product/").then(
-        (response)=> setRespProducts(response.data as any)
-        )
-    }
 
-    if (respProducts[0] != -1){
-        respProducts.forEach((product)=>{
-            fetchAddProduct(dispatch, product)
-        })
-    }
+    let user = useAppSelector((state:RootAdminState)=>getUser(state))
 
 
     return(
