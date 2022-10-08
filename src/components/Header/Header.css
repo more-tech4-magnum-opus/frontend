@@ -1,0 +1,53 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: #262626;
+    position: fixed;
+    top:0px;
+    width: 100%;
+    padding:10px 20px;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+
+    color: #FFFFFF;
+}
+.links{
+    display: flex;
+    flex-direction: row;
+    gap:16px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px;
+
+}
+.link{
+    filter: drop-shadow(0px 2px 0px rgba(0, 0, 0, 0.043));
+    border-radius: 101px;
+    padding: 8px 16px;
+    border: 1px solid #1890FF;
+
+
+}
+
+.activeLink{
+    background: #1890FF;
+    /* drop-shadow / button-primary */
+    
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.043);
+    border-radius: 101px;
+    padding: 8px 16px;
+
+}
+
+.userInfo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

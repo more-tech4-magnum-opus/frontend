@@ -1,23 +1,44 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { Provider } from 'react-redux';
-import { store } from './app/store';
+
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 import './index.css';
+import { Provider } from 'react-redux';
+import { adminStore} from './app/adminStore';
+import { AdminPage } from './admin';
+import { AdminMarket } from './admin/adminMarket';
+import { AdminMarketPopUp } from './admin/adminMarketPopUp';
+import { AddAdminMarketProduct } from './admin/addAdminMarketCard';
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+  Link,
+  Routes
+} from "react-router-dom";
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route>
+        <Route path="admin"element={<Provider store={adminStore}><AdminPage></AdminPage></Provider>}></Route>
+          <Route path='admin/market' element={<Provider store={adminStore}><AdminMarket></AdminMarket></Provider>}></Route>
+          <Route path='admin/market/:id' element={<Provider store={adminStore}><AdminMarketPopUp></AdminMarketPopUp></Provider>}></Route>
+          <Route path='admin/market/add' element={<Provider store={adminStore}><AddAdminMarketProduct></AddAdminMarketProduct></Provider>}></Route>
+          <Route path="hr"></Route>
+          <Route path="user"></Route>
+    </Route>
+          
+  )
+);
+
 
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+      <RouterProvider router={router} />
+
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

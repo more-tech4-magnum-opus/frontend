@@ -1,0 +1,2 @@
+export const host = "https://dev.akarpov.ru/api/"
+export const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY1ODI0ODQxLCJpYXQiOjE2NjUyMjQ4NDEsImp0aSI6ImIyMjgzZjg0MmQ0NjQ4ZDU5MGY3N2Y1NzU2NDU3YjUyIiwidXNlcl9pZCI6NH0.-jAQjFLV9WCZEbthdpO-JDbRaL3N3eTCNr9Vo-PAUEk"
