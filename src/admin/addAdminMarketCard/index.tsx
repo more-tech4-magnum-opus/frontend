@@ -77,7 +77,10 @@ export const AddAdminMarketProduct:React.FC = () =>{
                         <div className="InpWrapper">
                             <div>Изображение</div>
                             <div>
-                                <FileUploader onResponse={(file)=>setFile(file)}></FileUploader>
+                                <FileUploader onResponse={(file) => {
+                                    setFile(file);
+                                    console.log(file)
+                                }}></FileUploader>
                             </div>
                         </div>
                     </div>

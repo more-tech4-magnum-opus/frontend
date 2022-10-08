@@ -12,11 +12,9 @@ export const FileUploader:React.FC<FileUploaderIE> = (data) =>{
 
     const props = {
         name: 'file',
-        action: host + '/api/',
         headers: {
-          authorization: 'authorization-text',
+            "content-type": 'multipart/form-data; boundary=----WebKitFormBoundaryqTqJIxvkWFYqvP5s'
         },
-      
         onChange(info:any) {
           if (info.file.status !== 'uploading') {
           }
@@ -31,7 +29,11 @@ export const FileUploader:React.FC<FileUploaderIE> = (data) =>{
       };
       
     return (
-            <Upload {...props} multiple>
+            <Upload {...props} customRequest={(file) => {
+                console.log(file);
+            }} onDownload={(file) => {
+                console.log(file)
+            }} multiple>
               <Button icon={<UploadOutlined></UploadOutlined>}>Загрузите файлы для проверки</Button>
             </Upload>
       );

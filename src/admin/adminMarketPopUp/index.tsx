@@ -20,7 +20,6 @@ export const AdminMarketPopUp:React.FC = () =>{
     let dispatch = useAppDispatch()
     let navigate = useNavigate()
     const onSave = () =>{
-        console.log("cocb")
         fetchChangeProduct(dispatch, {
             cost: cost, 
             name: name,

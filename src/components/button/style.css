@@ -1,0 +1,15 @@
+.my-button{
+    padding: 4px 15px;
+    border-radius: 30px;
+    outline: none;
+    border: none;
+    background-color: #1890FF;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+}
+.disabled{
+    background-color: white;
+    border: 1px solid #1890FF;
+    color: #1890FF;
+}
