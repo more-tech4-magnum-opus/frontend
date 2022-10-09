@@ -1,0 +1,137 @@
+.clanwar-content{
+    margin-top: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.blueteam-info{
+    width: 419px;
+    height: 230px;
+}
+.center-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 116px;
+    height: 116px;
+    overflow: hidden;
+    border: 3px solid white;
+    border-radius: 16px;
+}
+.positioned{
+    transform: translateX(50px) translateY(50px);
+    display: flex;
+    gap: 10px;
+}
+.clanwar-name{
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+}
+
+.clanwar-number{
+    background: linear-gradient(85.91deg, #096DD9 0%, #40A9FF 100%);
+    border: 1px solid #1890FF;
+    border-radius: 38px;
+    padding: 5px 16px;
+    font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+
+/* Character / Primary(inverse) */
+
+color: #FFFFFF;
+}
+.clanwar-score{
+    border: 1px solid #8637E9;
+    border-radius: 38px;
+    padding: 5px 16px;
+    font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+
+/* Character / Primary(inverse) */
+
+color: #FFFFFF;
+
+ display: flex;
+ gap: 5px;
+}
+.clanwar-info{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.blueteamteam{
+    width: 471px;
+    height: 479px;
+    transform: translateY(110px) translateX(-25px);
+}
+
+.bigboardpos{
+    transform: translateX(50px) translateY(35px);
+}
+.title{
+    display: flex;
+    width: 350px;
+    transform: translateX(10px) translateY(20px);
+    padding: 5px 16px;
+    border-radius: 24px;
+    border: 1px solid white;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    background: linear-gradient(85.91deg, #096DD9 0%, #40A9FF 100%);
+}
+
+.ava{
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 1000px;
+    border: 3px solid white;
+}
+.parts{
+    transform: translateY(30px) translateX(20px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.part{
+    
+    display: flex;
+    width: 350px;
+    gap: 15px;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+
+}
+.war-fio{
+    text-decoration: underline;
+}
+.blueteam-pos{
+    position: absolute;
+    left: 0px;
+    transform: scale(0.8);
+}
+.redteam-pos{
+    position: absolute;
+    right: 0px;
+    transform: scale(0.8);
+    
+}
+.title-red{
+    background: linear-gradient(85.91deg, #D63E3E 0%, #F5489B 100%);
+}

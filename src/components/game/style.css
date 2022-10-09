@@ -1,0 +1,26 @@
+
+.map-map{
+    width: 751px;
+    height: 724px;
+}
+
+.map-positioned{
+    transform: translateX(101px) translateY(91px);
+}
+.map-first{
+    position: absolute;
+    background-color: white;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pos1{
+    position: absolute;
+    transform: translateX(52px)
+}
+.pos2{
+    position: absolute;
+    transform: translateY(53px)
+}

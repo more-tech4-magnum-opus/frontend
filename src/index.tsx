@@ -19,6 +19,10 @@ import {
 } from "react-router-dom";
 import { UserLk } from './user/lk';
 import { Clan } from './user/clan';
+import { ClanWar } from './user/clanWar';
+import { Leaderboard } from './user/leaderboard';
+import { Marketplace } from './user/marketplace';
+import { TransactionHistory } from './user/transaction_history';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
@@ -30,8 +34,12 @@ const router = createBrowserRouter(
           <Route path='admin/market/:id' element={<Provider store={adminStore}><AdminMarketPopUp></AdminMarketPopUp></Provider>}></Route>
           <Route path='admin/market/add' element={<Provider store={adminStore}><AddAdminMarketProduct></AddAdminMarketProduct></Provider>}></Route>
           <Route path="hr"></Route>
-          <Route path="user/lk/" element={<UserLk />} />
-          <Route path='user/clan' element={<Clan />} /> 
+          <Route path="user/events/" element={<UserLk />} />
+          <Route path='user/clan' element={<Clan />} />
+          <Route path='user/clan-war' element={<ClanWar />} />
+          <Route path='user/leaderboard' element={<Leaderboard />} />
+          <Route path='user/marketplace' element={<Marketplace />} />
+          <Route path='user/transaction-history' element={<TransactionHistory />} />
     </Route>
           
   )
