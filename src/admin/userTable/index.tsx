@@ -140,7 +140,7 @@ export const UserTable:React.FC = () =>{
                 command: user.command,
                 role: user.type,
                 respect: user.respect,
-                balance: user.salary,
+                balance: user.money,
                 jobTittle: user.department,
                 clan: user.clan_name
             }) as EmployerIE ))))
@@ -156,7 +156,7 @@ export const UserTable:React.FC = () =>{
                     command: user.command,
                     role: user.type,
                     respect: user.respect,
-                    balance: user.salary,
+                    balance: user.money,
                     jobTittle: user.department,
                     }) ))
                 } as ClanIE))
@@ -202,7 +202,11 @@ export const UserTable:React.FC = () =>{
                             link:"/admin/market/add",
                             name:"Cоздать товар (NFT)"
                         },
- 
+                        {
+                            link:"/admin/transaction",
+                            name:"История транзакций"
+                        },
+
                     ]}
                 name={user.name}></Header>
             <div className='changeProductCard'>

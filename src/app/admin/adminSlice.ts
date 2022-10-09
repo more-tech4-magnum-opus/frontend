@@ -3,8 +3,6 @@ import { stat } from 'fs'
 import { Market, Roles, SortTypes, UserIE, ProductIE, EmployerIE, ClanIE} from '../interfaces'
 import { AppAdminDispatch, RootAdminState } from '../adminStore'
 import { adminFetcher, useAppDispatch } from '../hooks'
-import { host, token } from '../consts'
-import { triggerAsyncId } from 'async_hooks'
 
 
 
@@ -15,7 +13,7 @@ const initState = {
         wallet:"123214",
         balance: 100,
         id:"1",
-        role:Roles.admin,
+        role:"ADMIN",
         name:"Firesieht"
     } as UserIE, //потом достается запросом
     market:  {

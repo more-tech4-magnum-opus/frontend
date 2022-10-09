@@ -14,7 +14,7 @@ export enum Specialities{
 
 export interface UserIE{
     wallet:string,
-    role:Roles
+    role:string
     balance: number,
     name:string,
 }
@@ -26,17 +26,32 @@ export interface EmployerIE extends UserIE{
     respect: number, 
     telegramID: string,
     command: string,
-    clan:string
+    clan:string,
+    money:number,
 }
 
+export interface HRIE extends UserIE{
+    respect:number,
+    command:number,
+    telegram: string,
+}
 
 export interface EventIE{
     name:string, 
-    description: string,
-    date: Date,
-    time:Date,
-    org: number;
-    visitors: number[]
+    about: string,
+    starts: string,
+    slug:string,
+    creator:HRIE,
+    image:string,
+    planning:number,
+    attended:number
+}
+
+export interface EventAttendence{
+    id:number,
+    event_slug:string,
+    worker_username:string,
+    attended:boolean
 }
 
 export interface ProductIE{
