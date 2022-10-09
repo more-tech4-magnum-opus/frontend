@@ -29,6 +29,10 @@ import { AddEvent } from './hr/addEvent';
 import { RegUsers } from './hr/regUsers';
 import { TransactionHistory } from './hr/transactionHistory';
 import { Transaction } from './Transaction';
+import { ClanWar } from './user/clanWar';
+import { Leaderboard } from './user/leaderboard';
+import { Marketplace } from './user/marketplace';
+import { TransactionHistory } from './user/transaction_history';
 
 
 const container = document.getElementById('root')!;
@@ -50,11 +54,17 @@ const router = createBrowserRouter(
           <Route path="hr/addEvent" element={<Provider store={hrStore}><AddEvent></AddEvent></Provider>}></Route>
           <Route path="/hr/events/reg/:name" element={<Provider store={hrStore}><RegUsers></RegUsers></Provider>}></Route>
           <Route path="/hr/transaction" element={<Provider store={hrStore}><TransactionHistory></TransactionHistory></Provider>}></Route>
-
           <Route path="user/lk/" element={<UserLk />} />
           <Route path='user/clan' element={<Clan />} /> 
 
           <Route path="transaction" element={<Transaction></Transaction>}></Route>
+          <Route path="hr"></Route>
+          <Route path="user/events/" element={<UserLk />} />
+          <Route path='user/clan' element={<Clan />} />
+          <Route path='user/clan-war' element={<ClanWar />} />
+          <Route path='user/leaderboard' element={<Leaderboard />} />
+          <Route path='user/marketplace' element={<Marketplace />} />
+          <Route path='user/transaction-history' element={<TransactionHistory />} />
     </Route>
           
   )
