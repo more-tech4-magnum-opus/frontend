@@ -1,8 +1,6 @@
 import "./Header.css"
 import React from "react"
 import { Link, useLocation, useParams } from "react-router-dom"
-import axios, { AxiosHeaders } from 'axios';
-import { host, token } from "../../app/consts";
 
 interface HeaderIE{
     links: {

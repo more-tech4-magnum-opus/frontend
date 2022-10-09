@@ -47,6 +47,10 @@ export const AddAdminMarketProduct:React.FC = () =>{
                         link:"/admin/market/add",
                         name:"Cоздать товар (NFT)"
                     },
+                    {
+                        link:"/admin/transaction",
+                        name:"История транзакций"
+                    },
                 ]}
                 name={user.name}></Header>
             <div className="addProductCard">

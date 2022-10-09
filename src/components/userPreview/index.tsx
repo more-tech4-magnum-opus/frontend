@@ -1,6 +1,6 @@
 import { Tag } from 'antd'
 import react from 'react'
-
+import "./style.css"
 
 interface IUserPreview{
     level: number;

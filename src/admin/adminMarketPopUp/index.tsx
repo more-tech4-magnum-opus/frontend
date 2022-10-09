@@ -43,7 +43,11 @@ export const AdminMarketPopUp:React.FC = () =>{
                         {
                             link:"/admin/users",
                             name:"Участники"
-                        }
+                        },
+                        {
+                            link:"/admin/transaction",
+                            name:"История транзакций"
+                        },
                     ]}
                     name={user.name}></Header>
             <div className="changeProductCard">
