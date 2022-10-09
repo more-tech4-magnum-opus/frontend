@@ -1,0 +1,52 @@
+.centered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.leaderboard-container{
+    margin-top: 100px;
+    width: 900px;
+    background-color: white;
+    padding: 20px 100px;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.leaderboard-title{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.clan-leader__content{
+    display: flex;
+    gap: 20px;
+}
+
+.clan-image{
+    border-radius: 16px;
+}
+.clan-place{
+    background-color: #1890FF;
+    border-radius: 16px;
+    padding: 5px 16px;
+    color: white;
+    font-weight: bold;
+}
+
+.clan-names{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.score-clan{
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 150px;
+    border: 1px solid #8637E9;
+    padding: 5px 16px;
+    border-radius: 30px;
+}
