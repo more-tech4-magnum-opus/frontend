@@ -1,0 +1,73 @@
+.centered{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content-clans{
+    margin-top: 100px;
+}
+.clan-content{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 900px;
+}
+.clan-header{
+    display: flex;
+    background-color: #262626;
+    padding: 20px 100px;
+    border-radius: 16px;
+    gap: 10px;
+
+}
+
+.clan-header>img{
+    border-radius: 16px;
+}
+
+.clan-stats{
+    display: flex;
+    gap: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.clan-number{
+    border: 1px solid #1890FF;
+    padding: 5px 25px;
+    border-radius: 16px;
+}
+.clan-score{
+    border: 1px solid #8637E9;
+    padding: 5px 25px;
+    display: flex;
+    gap: 5px;
+    border-radius: 16px;
+}
+
+.clan-name{
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+.tg-chat{
+    font-weight: 400;
+    color: white;
+}
+.clan-parts{
+    display: flex;
+    background-color: white;
+    border-radius: 16px;
+}
+.clan-parts__content{
+    margin: 20px 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.clan-parts__header{
+    margin-bottom: 20px;
+}
+.no-padding{
+    padding: 0!important;
+}

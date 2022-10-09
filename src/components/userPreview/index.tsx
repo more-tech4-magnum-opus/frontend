@@ -13,10 +13,11 @@ interface IUserPreview{
     tags: react.ReactNode[];
     description: string;
     logo_url: string;
+    className?: string;
 }
 
 export const UserPreview: react.FC<IUserPreview> = (props) => {
-    return <div className="self-info">
+    return <div className={"self-info " + props.className}>
     <img src={props.logo_url} alt="" className="self-img" />
     <div className="information">
         <div className="stats">
